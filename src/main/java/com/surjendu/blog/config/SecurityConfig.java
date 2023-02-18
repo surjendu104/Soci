@@ -7,7 +7,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -28,13 +27,13 @@ import lombok.RequiredArgsConstructor;
 @EnableWebSecurity
 @EnableWebMvc
 @RequiredArgsConstructor
-@EnableMethodSecurity
 public class SecurityConfig {
 	
 	public String[] PUBLIC_URLS = {
 	                               "/api/auth/**",
 	                               "/v3/api-docs",
-	                               "/swagger-ui/**"
+	                               "/swagger-ui/**",
+	                               "/swagger-ui.html"
 	};
 	
 	@Autowired
@@ -47,9 +46,10 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
 		.csrf().disable()
+		.cors().disable()
 		.authorizeHttpRequests()
-		.requestMatchers(HttpMethod.GET).permitAll()
 		.requestMatchers(PUBLIC_URLS).permitAll()
+		.requestMatchers(HttpMethod.GET).permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()

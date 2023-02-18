@@ -18,10 +18,12 @@ import com.surjendu.blog.payload.ApiResponse;
 import com.surjendu.blog.payload.CategoryDto;
 import com.surjendu.blog.services.CategoryService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/categories")
+@SecurityRequirement(name = "bearerAuth")
 public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;

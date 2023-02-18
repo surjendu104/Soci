@@ -14,6 +14,7 @@ import com.surjendu.blog.config.AppConstants;
 import com.surjendu.blog.entities.Role;
 import com.surjendu.blog.repositories.RoleRepo;
 
+
 @SpringBootApplication
 public class BlogApiApplication implements CommandLineRunner{
 	@Autowired

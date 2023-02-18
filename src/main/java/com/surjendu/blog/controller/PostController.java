@@ -30,12 +30,14 @@ import com.surjendu.blog.payload.PostReponse;
 import com.surjendu.blog.services.impl.FielServiceImpl;
 import com.surjendu.blog.services.impl.postServiceImpl;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 
 
 @RestController
 @RequestMapping("/api/posts")
+@SecurityRequirement(name = "bearerAuth")
 public class PostController {
 	@Autowired
 	private postServiceImpl postServiceImpl;

@@ -14,8 +14,11 @@ import com.surjendu.blog.payload.ApiResponse;
 import com.surjendu.blog.payload.CommentDto;
 import com.surjendu.blog.services.impl.CommentServiceImpl;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/api/comments")
+@SecurityRequirement(name = "bearerAuth")
 public class CommentController {
 	@Autowired
 	private CommentServiceImpl commentServiceImpl;

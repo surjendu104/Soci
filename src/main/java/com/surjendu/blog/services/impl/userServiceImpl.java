@@ -45,7 +45,7 @@ public class userServiceImpl implements UserService{
 		
 		user.setName(userDto.getName());
 		user.setEmail(userDto.getEmail());
-		user.setPassword(userDto.getPassword());
+		user.setPassword(this.passwordEncoder.encode(user.getPassword()));
 		user.setAbout(userDto.getAbout());
 		
 		User updatedUser = this.userRepo.save(user);
@@ -79,21 +79,11 @@ public class userServiceImpl implements UserService{
 	
 	private User dtoToUser(UserDto userDto) {
 		User user = this.modelMapper.map(userDto, User.class);
-//		user.setId(userDto.getId());
-//		user.setName(userDto.getName());
-//		user.setEmail(userDto.getEmail());
-//		user.setAbout(userDto.getAbout());
-//		user.setPassword(userDto.getPassword());
 		return user;
 	}
 	
 	private UserDto userToUserDto(User user) {
 		UserDto userDto = this.modelMapper.map(user, UserDto.class);
-//		userDto.setId(user.getId());
-//		userDto.setName(user.getName());
-//		userDto.setEmail(user.getEmail());
-//		userDto.setAbout(user.getAbout());
-//		userDto.setPassword(user.getPassword());
 		return userDto;
 	}
 
