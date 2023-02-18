@@ -32,8 +32,14 @@ spring.datasource.dbcp2.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 #### Finally run your application by ``mvn spring-boot:run``
 
-### Final EER Dialgram
+#### -- Final EER Dialgram
 ![EER](./Final%20EER%20Image.png)
+
+#### -- Access to swagger ui
+```bash
+# In your browser go here
+http://localhost<port_number>/swagger-ui.index.html
+```
 
 ### Troubleshoot
 1. JDBC Doumentation [JDBC](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)
