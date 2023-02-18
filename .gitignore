@@ -34,9 +34,3 @@ build/
 
 ### User ###
 images/
-.project
-mvnw
-mvnw.cmd
-.classpath
-.settings
-.mvn
